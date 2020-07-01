@@ -1,12 +1,31 @@
-import pyttsx3 
-import speech_recognition as sr 
+
+import pyttsx3                        # pip install pyttsx3
+
+
+import speech_recognition as sr       # pip install speech_recognition
+
+
+
 import datetime
-import wikipedia 
+
+
+import wikipedia                      # pip install wikipedia
+
+
 import webbrowser
+
+
 import os
+
+
 import smtplib
-import googlesearch
+
+
+import googlesearch                 #pip install googlesearch
+
+
 from googlesearch import search
+
 
 
 
@@ -15,7 +34,7 @@ from googlesearch import search
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
 
-engine.setProperty('voice', voices[0].id)
+engine.setProperty('voice', voices[0].id) #id [1], for female voice.
 
 
 def speak(audio):
@@ -34,7 +53,7 @@ def wishMe():
     else:
         speak("Wonderfull evening")  
 
-    speak("I am Ramu kaka, what can i do for you, Master Utkarsh ")       
+    speak("I am /NameOfYourAI\, what can i do for you, Master ")       
 
 def takeCommand():
     
@@ -46,11 +65,11 @@ def takeCommand():
 
     try:
         print("ab mai sochega")    
-        query = r.recognize_google(audio, language='en-in')
+        query = r.recognize_google(audio, language='en-in')                     # Google is the best when inputing audio data from user
         print(f"yahi bole naa??: {query}\n")
 
     except Exception:
-        # print(e)  
+                                                                            #keeps the Loop working until terminating command is run
         speak(f'what else i can do for you?')  
         print("Dubara bolo na bhaiii")  
         return "None"
@@ -67,7 +86,7 @@ if __name__ == "__main__":
 
 
         if 'what is' in query :
-            chrome_path = r'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe %s'
+            chrome_path = r'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe %s'                     #Your Google Chore directory
             speak(f'let me  search it for you')
             query1=""
             list_needed=""
@@ -87,7 +106,7 @@ if __name__ == "__main__":
         
         
         elif 'who is' in query:
-            chrome_path = r'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe %s'
+            chrome_path = r'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe %s' 
             speak(f'let me see who are you talking about')
             query2=""
             list_needed=""
@@ -142,10 +161,10 @@ if __name__ == "__main__":
         
         
         elif 'who are you' in query:
-            speak(f'I am a brainchild of my sole creator, utkarsh. trust me he is very alone. like super duper alone ha ha ha haa, laughs on him')
+            speak(f'I am a brainchild of my sole creator, /YourName\.')
 
         elif 'why were you created' in query:
-           speak(f'nothing, my master made me just to cope up from his loneliness nothing else. still he loves space and coding')
+           speak(f'#yourCreativeAnswer')
         
         elif 'what is the best coding language' in query:
             speak(f'Obviously Python and its other varyants, how come you even ask that, but more likely i should be biased, hence all are pretty amazing')
@@ -156,13 +175,14 @@ if __name__ == "__main__":
             webbrowser.open("www.w3schools.com")
             webbrowser.open("www.geeksforgeeks.org")
             
+        ''''
         elif 'where is' in query:
-            speak(f'let me see where you want to go')
-            query2=""
+            speak(f'let me see where you want to go')                          
             list_needed=""
             str3=""
             if 'where is' in query :
-                list_name=list(query)
+                list_name=list(query)                                                            # This section is underdevelopment, using the Google_Maps API
+            query2=""
                 list_needed=list_name[7:]
                 
                 for word in list_needed:  
@@ -171,7 +191,7 @@ if __name__ == "__main__":
 
             for url in search(str3, tld="co.in", num=1, stop = 1, pause = 2):
                 webbrowser.open("https://www.google.com/search?q=%s" % str3)
-
+        ''''
 
 
         elif 'please open' in query:
@@ -194,11 +214,12 @@ if __name__ == "__main__":
 
 
         elif 'bye take care' in query:
-            speak(f"Thank you for listening to Ramu-kaka")
+            speak(f"Thank you for listening to /YourAI\ ")
             print("Exiting, thanks for using my interface")
             break
         
-    
+# add your queries at will
+# happy coding
 
 
             
