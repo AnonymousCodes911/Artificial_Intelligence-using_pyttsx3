@@ -59,19 +59,19 @@ def takeCommand():
     
     r = sr.Recognizer()
     with sr.Microphone() as source:
-        print("phele mai sunega")
+        print("Let me listen")
         r.pause_threshold = 0.5
         audio = r.listen(source)
 
     try:
-        print("ab mai sochega")    
+        print("i am processing")    
         query = r.recognize_google(audio, language='en-in')                     # Google is the best when inputing audio data from user
-        print(f"yahi bole naa??: {query}\n")
+        print(f"your query: {query}\n")
 
     except Exception:
                                                                             #keeps the Loop working until terminating command is run
         speak(f'what else i can do for you?')  
-        print("Dubara bolo na bhaiii")  
+        print("Please repeat")  
         return "None"
     return query
 
@@ -133,7 +133,7 @@ if __name__ == "__main__":
        
         elif 'wikipedia' in query :
             
-            print('Wikipedia se nikalta hai mai, waitzz')
+            print('Fetching results from Wikipedia, PLease stay patient')
             query = query.replace("wikipedia", "")
             results = wikipedia.summary(query, sentences=2)
             speak(f' i ll fetch the results from wiki pedia , it takes me , seconds to read that data base, please wait')
@@ -142,14 +142,15 @@ if __name__ == "__main__":
             speak(results)
 
         elif 'open youtube' in query:
-            print("Youtube dekhe gaa??")
+            print("Opening Youtube in a new window")
             webbrowser.open("youtube.com")
 
         elif 'open google' in query:
-            print("aacha bhai ab google bhi karenege")
+            print("Opening Google")
             webbrowser.open("google.com")
 
-        elif 'open facebook' in query:
+        elif 'open facebook' in query: 
+            print("Opening facebook")
             webbrowser.open("facebook.com")   
 
 
